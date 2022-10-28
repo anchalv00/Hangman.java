@@ -16,7 +16,8 @@ public class PhraseSolver
   /* your code here - constructor(s) */ 
   public PhraseSolver()
   {
-   
+    player1 = null;
+    player2 = null;
     game = null;
     solved = false;
   }
