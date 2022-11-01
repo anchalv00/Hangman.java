@@ -88,20 +88,35 @@ public class  Board
     return tempPhrase;
   }  
 
+  /*
+   * stores the partially solved phrase based on the user's guess
+   * precondition: 
+   *      -user enters a String for a guess
+   *      -user only enters one letter
+   * postcondition:
+   *      -solvedPhrase will store the partially solved phrase
+   *      -foundLetter will be set to true or false depending on the user's guess
+   */
+
   public boolean guessLetter(String guess)
   {
     boolean foundLetter = false;
     String newSolvedPhrase = "";
     
+    //loops through all characters in a string
     for (int i = 0; i < phrase.length(); i++)
     {
+      //if the guessed letter is found in the phrase, then the following code will execute
       if (phrase.substring(i, i + 1).equals(guess))
       {
+        //stores the partially solved phrase
         newSolvedPhrase += guess + " ";
         foundLetter = true;
       }
+      //if the guessed letter is not found in the phrase, then the following code will execute
       else
       {
+        //reduces the amount of guesses the user has
         newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";  
       }
     }
