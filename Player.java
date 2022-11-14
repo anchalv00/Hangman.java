@@ -42,4 +42,10 @@ public int getPoints(){
   return points;
 }
   /* your code here - mutator(s) */ 
+
+public void setPoints(int x){
+  points = x;
+}
+
+
 }

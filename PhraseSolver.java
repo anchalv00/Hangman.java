@@ -27,20 +27,55 @@ public class PhraseSolver
 
   public void play()
   {
-    boolean solved = false;
-    int currentPlayer = 1;
+    
+    Player currentPlayer = player1;
 
     Scanner input = new Scanner(System.in);
-    
+    System.out.println("Enter your guess: ");
+    String sc = input.nextLine();
+
     boolean correct = true;
     while (!solved) 
     {
       
       /* your code here - game logic */
-      
+
+
+      if(game.isSolved(sc)){
+        solved = true;
+      }
+
+      else{
+        currentPlayer = player2;
+      }
       
       /* your code here - determine how game ends */
       solved = true; 
+    } 
+
+    input = new Scanner(System.in);
+    System.out.println("Enter your guess: ");
+    sc = input.nextLine();
+
+    correct = true;
+    while (!solved) 
+    {
+      
+      /* your code here - game logic */
+
+
+      if(game.isSolved(sc)){
+        solved = true;
+      }
+
+      else{
+        correct = false;
+        currentPlayer = player2;
+      }
+      
+      /* your code here - determine how game ends */
+      solved = true; 
+      
     } 
    
   }
