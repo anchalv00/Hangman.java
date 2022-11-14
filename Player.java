@@ -34,6 +34,12 @@ public Player(String inputName)
   
 }
   /* your code here - accessor(s) */ 
+public String getName(){
+  return name;
+}
 
+public int getPoints(){
+  return points;
+}
   /* your code here - mutator(s) */ 
 }
