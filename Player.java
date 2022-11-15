@@ -17,7 +17,7 @@ public class Player
 public Player()
 {
   Scanner sc = new Scanner(System.in);
-  System.out.println("Enter your name: ");
+  System.out.println("Please enter your name: ");
   String newName = sc.nextLine();
 
   name = newName;

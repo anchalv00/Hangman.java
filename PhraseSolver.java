@@ -12,6 +12,7 @@ public class PhraseSolver
   private Player player2;
   private Board game;
   private boolean solved;
+  private String x;
 
   /* your code here - constructor(s) */ 
   public PhraseSolver()
@@ -20,6 +21,7 @@ public class PhraseSolver
     player2 = new Player();
     game = new Board();
     solved = false;
+    x = "";
   }
   /* your code here - accessor(s) */
   
@@ -28,7 +30,7 @@ public class PhraseSolver
   public void play()
   {
     
-    Player currentPlayer = player1;
+    int currentPlayer = 1;
 
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your guess: ");
@@ -40,44 +42,40 @@ public class PhraseSolver
       
       /* your code here - game logic */
 
-
-      if(game.isSolved(sc)){
-        solved = true;
-      }
-
-      else{
-        currentPlayer = player2;
-      }
-      
-      /* your code here - determine how game ends */
-      solved = true; 
-    } 
-
-    input = new Scanner(System.in);
-    System.out.println("Enter your guess: ");
-    sc = input.nextLine();
-
-    correct = true;
-    while (!solved) 
+    if(currentPlayer == 1)
     {
-      
-      /* your code here - game logic */
-
-
-      if(game.isSolved(sc)){
-        solved = true;
+      x = game.getSolvedPhrase();
+      System.out.println(x);
+      if(game.guessLetter(sc)){
+        System.out.println("Enter your guess: ");
+        sc = input.nextLine();
       }
 
-      else{
-        correct = false;
-        currentPlayer = player2;
-      }
+      System.out.println("goes thru if statement");
+      currentPlayer = 2;
+    }
+    else
+    {
+      x = game.getSolvedPhrase();
+      System.out.println(x);
+      System.out.println("goes thru else statement");
       
+      game.guessLetter(sc);
+      currentPlayer = 1;
+
+    }
+
+    if(game.isSolved(x)){
+      solved = true;
+    }
+    
       /* your code here - determine how game ends */
-      solved = true; 
+    }
+  } 
+
+
       
-    } 
    
-  }
   
+
 }

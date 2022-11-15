@@ -22,6 +22,13 @@ public class  Board
   }
   /* your code here - accessor(s) */
   
+  public String getSolvedPhrase(){
+    return solvedPhrase;
+  }
+
+
+  
+
   /* your code here - mutator(s)  */
 
 

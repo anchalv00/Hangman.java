@@ -12,9 +12,9 @@ public class Runner
     p.play();
 
     //Player class
-    Player p2 = new Player();
+    //Player p2 = new Player();
     //System.out.println(p2.getName());
-    System.out.println(p2.getPoints());
+    //System.out.println(p2.getPoints());
   }
 
 } 
