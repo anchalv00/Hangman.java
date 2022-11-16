@@ -34,18 +34,27 @@ public Player(String inputName)
   
 }
   /* your code here - accessor(s) */ 
-public String getName(){
-  return name;
-}
+  public String getName(){
+    return name;
+  }
 
-public int getPoints(){
-  return points;
-}
-  /* your code here - mutator(s) */ 
+  public int getPoints(){
+    return points;
+  }
+    /* your code here - mutator(s) */ 
 
-public void setPoints(int x){
-  points = x;
-}
+  public void setName(String inputName){
+    name = inputName;
+  }
+
+  public void setPoints(int x){
+    points = x;
+  }
+
+  public int addToPoints(int value){
+    return points + value;
+  }
 
 
+  
 }

@@ -13,6 +13,7 @@ public class PhraseSolver
   private Board game;
   private boolean solved;
   private String x;
+  private int currentPlayer;
 
   /* your code here - constructor(s) */ 
   public PhraseSolver()
@@ -21,27 +22,95 @@ public class PhraseSolver
     player2 = new Player();
     game = new Board();
     solved = false;
-    x = "";
+    String x = "";
+    currentPlayer = 1;
   }
   /* your code here - accessor(s) */
   
   /* your code here - mutator(s)  */
 
+
+
   public void play()
   {
     
-    int currentPlayer = 1;
 
-    Scanner input = new Scanner(System.in);
-    System.out.println("Enter your guess: ");
-    String sc = input.nextLine();
+    //boolean correct = true;
 
-    boolean correct = true;
     while (!solved) 
     {
-      
+
+      //PLAYER 1
+      if(currentPlayer == 1){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(player1.getName() +" enter your guess: ");
+        String input1 = sc.nextLine();
+
+        //if letter is correct
+        if(game.guessLetter(input1)){
+          System.out.println(player1.getName() + ": " + game.getSolvedPhrase());
+          player1.setPoints(player1.addToPoints(1));
+        }
+
+        //if phrase is correct
+        if(game.isSolved(input1)){
+          solved = true;
+          System.out.println(player1.getName() + " has guessed the correct phrase");
+          player1.setPoints(player1.addToPoints(1));
+          System.out.println(player1.getPoints());
+        }
+
+        currentPlayer = 2;
+
+      //PLAYER 2
+      }else{
+        Scanner sc = new Scanner(System.in);
+        System.out.println(player2.getName() + " enter your guess: ");
+        String input2 = sc.nextLine();
+
+        //if letter is correct
+        if(game.guessLetter(input2)){
+          
+          System.out.println(player2.getName() + ": " + game.getSolvedPhrase());
+          player2.setPoints(player2.addToPoints(1));
+        }
+
+        //if phrase is correct
+        if(game.isSolved(input2)){
+          solved = true;
+          System.out.println(player2.getName() + " has guessed the correct phrase");
+          player2.setPoints(player2.addToPoints(1));
+          System.out.println(player1.getPoints());
+          
+        }
+
+        currentPlayer = 1;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       /* your code here - game logic */
 
+      /* 
     if(currentPlayer == 1)
     {
       x = game.getSolvedPhrase();
@@ -68,7 +137,7 @@ public class PhraseSolver
     if(game.isSolved(x)){
       solved = true;
     }
-    
+  */
       /* your code here - determine how game ends */
     }
   } 
@@ -78,4 +147,3 @@ public class PhraseSolver
    
   
 
-}
