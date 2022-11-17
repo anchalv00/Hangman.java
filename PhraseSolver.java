@@ -49,14 +49,17 @@ public class PhraseSolver
         //if letter is correct
         if(game.guessLetter(input1)){
           System.out.println(player1.getName() + ": " + game.getSolvedPhrase());
-          player1.setPoints(player1.addToPoints(1));
+          player1.addToPoints(game.getLetterValue());
+        }else{
+          System.out.println(player1.getName() + ": " + game.getSolvedPhrase());
         }
 
+
         //if phrase is correct
-        if(game.isSolved(input1)){
+        if(game.isSolved(input1) || game.getSolvedPhrase() == game.getPhrase()){
           solved = true;
           System.out.println(player1.getName() + " has guessed the correct phrase");
-          player1.setPoints(player1.addToPoints(1));
+          player1.addToPoints(game.getLetterValue());
           System.out.println(player1.getPoints());
         }
 
@@ -72,14 +75,17 @@ public class PhraseSolver
         if(game.guessLetter(input2)){
           
           System.out.println(player2.getName() + ": " + game.getSolvedPhrase());
-          player2.setPoints(player2.addToPoints(1));
+          player1.addToPoints(game.getLetterValue());
+        }else{
+          System.out.println(player2.getName() + ": " + game.getSolvedPhrase());
+
         }
 
         //if phrase is correct
-        if(game.isSolved(input2)){
+        if(game.isSolved(input2) || game.getSolvedPhrase().replaceAll(" ", "").equals(game.getPhrase().replaceAll(" ", ""))){
           solved = true;
           System.out.println(player2.getName() + " has guessed the correct phrase");
-          player2.setPoints(player2.addToPoints(1));
+          player1.addToPoints(game.getLetterValue());
           System.out.println(player1.getPoints());
           
         }

@@ -47,12 +47,9 @@ public Player(String inputName)
     name = inputName;
   }
 
-  public void setPoints(int x){
-    points = x;
-  }
 
-  public int addToPoints(int value){
-    return points + value;
+  public void addToPoints(int value){
+    points += value;
   }
 
 
